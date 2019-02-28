@@ -1,12 +1,12 @@
 const currentDateUTC = new Date().toUTCString()
 
 module.exports = {
-	title: 'My New VuePress Blog',
+	title: 'UOUO',
 	dest: './public',
 	themeConfig: {
-		repo: 'https://wwww.github.com',
+		// repo: 'https://github.com/vietcuongtruong/vuepress-blog-boilerplate',
 		repoLabel: 'Repo',
-		editLinks: true,
+		editLinks: false,
 		editLinkText: 'Found a bug? Help me improve this page!',
 		nav: [
 			{ text: 'Home', link: '/' }, 
@@ -14,7 +14,7 @@ module.exports = {
 			{ text: 'Archive', link: '/archive/' },
 			{ text: 'RSS Feed', link: '/rss.xml' }
 		],
-		logo: '/vuepress-blog-logo.png',
+		logo: '/vuopress-logo.svg',
 		docsDir: 'src',
 		pageSize: 5,
 		startPage: 0,
@@ -24,15 +24,15 @@ module.exports = {
 		[
 			'@vuepress/google-analytics',
 			{
-				ga: '' // UA-00000000-0
+				ga: 'UA-29435516-2' // UA-00000000-0
 			}
 		],
 		[
 			'vuepress-plugin-rss',
 			{
 				base_url: '/',
-				site_url: 'https://vuepressblog.org',
-				filter: frontmatter => frontmatter.date <= new Date(currentDateUTC),
+				site_url: 'https://www.uouo.se',
+				filter: frontmatter => frontmatter.date <= new Date(),
 				count: 20
 			}
 		],
