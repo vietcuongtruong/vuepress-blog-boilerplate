@@ -1,15 +1,17 @@
 ---
-title: My First Post
-date: 2018-12-23 20:47:18
-excerpt: Here is a little bit about my post.
+title: Hello World
+date: 2019-02-23 20:47:18
+excerpt: This is my first blog post
 type: post
 blog: true
 tags:
+    - Design
+    - Vue
     - HTML
     - CSS
     - JavaScript
 ---
 
-## Hello Dr. Zoidberg
+## Hello World!
 
-Dr. Zoidberg, that doesn't make sense. But, okay! No! The kind with looting and maybe starting a few fires! Well, then good news! It's a suppository. Hey, guess what you're accessories to. Hey, guess what you're accessories to.
+I have just started to build my new portfolio site. After extensive research I finally decided to build my site with VuePress. Let's do this!

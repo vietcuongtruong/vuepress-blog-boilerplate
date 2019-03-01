@@ -1,9 +1,20 @@
 ---
-title: My Tagging Post
-date: 2018-12-26 21:50:21
+title: My Third Post
+date: 2019-02-24 20:47:18
 type: post
 blog: true
-excerpt: Hello
+excerpt: I'm creating my 3 post!...
 tags:
-    - JavaScript
+    - Blogging
+    - Tutorials
 ---
+
+# Hello!
+
+This is pretty awesome! yes
+
+::: tip
+Aren't custom containers cool?
+:::
+
+> "I have a big head... and little arms." - T-rex from 'Meet the Robinsons'
