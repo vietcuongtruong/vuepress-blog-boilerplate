@@ -10,10 +10,15 @@
     :href="link"
     class="nav-link"
   >
-    {{ item.text }}
+    <i class="fas fa-rss">
+      <span class="sr-only">
+        {{ item.text }}
+      </span>
+    </i>
   </a>
   <a
-    v-else
+    v-else-if="!isXml(link)"
+    :exact="exact"
     :href="link"
     class="nav-link external"
     :target="isMailto(link) || isTel(link) ? null : '_blank'"
@@ -34,7 +39,7 @@ export default {
     }
   },
 
-  computed: {
+  computed: { 
     link () {
       return ensureExt(this.item.link)
     },
@@ -55,3 +60,4 @@ export default {
   }
 }
 </script>
+

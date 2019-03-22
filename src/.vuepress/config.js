@@ -1,26 +1,88 @@
 const currentDateUTC = new Date().toUTCString()
 
 module.exports = {
-	title: 'UOUO',
-	dest: './public',
+	title: 'uouo',
+  dest: './public',
+  // serviceWorker: true,
 	themeConfig: {
+    //sidebarDepth: 1, // defaults to 1 | 0 disables the header links | max is 2
 		// repo: 'https://github.com/vietcuongtruong/vuepress-blog-boilerplate',
 		repoLabel: 'Repo',
 		editLinks: false,
-		editLinkText: 'Found a bug? Help me improve this page!',
+    editLinkText: 'Found a bug? Help me improve this page!',
+    serviceWorker: {
+      updatePopup: true,
+    },
 		nav: [
-			{ text: 'Home', link: '/' }, 
+			// { text: 'Home', link: '/' }, 
       { text: 'Projects', link: '/projects/' },
-      { text: 'About', link: '/about/' },
       { text: 'Blog', link: '/blog/' },
-			{ text: 'Archive', link: '/archive/' },
+      { text: 'Archive', link: '/archive/' },
+      { text: 'About', link: '/about/' },
+      // {
+      //   text: 'About',
+      //   items: [
+      //     { text: 'About', link: '/about/' },
+      //     { text: 'Me', link: '/about/me/' },
+      //     { text: 'Uses', link: '/about/uses/' }
+      //   ]
+      // },
 			{ text: 'RSS Feed', link: '/rss.xml' }
-		],
+    ],
+    sidebar: {
+      '/projects/': [
+        {
+          title: 'Identities', // required
+          //path: '/projects/',  // optional, which should be a absolute path.
+          collapsable: false,  // optional, defaults to true
+          //sidebarDepth: 1,     // optional, defaults to 1 (funkar inte av någon anledning här)
+          children: [
+            '/projects/tocaboca/',
+            '/projects/everyread/',
+            '/projects/readmill/',
+            '/projects/tripwell/',
+            '/projects/bonniergrowthmedia/',
+            '/projects/mobilab/'
+          ]
+        },
+        {
+          title: 'Iconography',
+          collapsable: false,
+          children: [
+            '/projects/arbetsformedlingen/'
+          ]
+        },
+        {
+          title: 'Exhibition',
+          collapsable: false,
+          children: [
+            '/projects/konstfack/'
+          ]
+        }
+      ],
+
+      '/about/': [
+        '',
+        'me',
+        'uses'
+      ],
+    },
+    
+    
+    
+
 		logo: '/vuopress-logo.svg',
 		docsDir: 'src',
 		pageSize: 5,
 		startPage: 0,
-		newestFirst: true
+    newestFirst: true,
+    // sidebar: {
+    //   '/about/': [
+    //     '',     /* /foo/ */
+    //     'me',  /* /foo/one.html */
+    //     'uses'   /* /foo/two.html */
+    //   ]
+    // }
 	},
 	plugins: [
 		[
@@ -39,8 +101,14 @@ module.exports = {
 			}
 		],
 		'vuepress-plugin-reading-time',
-		'vuepress-plugin-janitor'
-	],
+    'vuepress-plugin-janitor'
+  ],
+  markdown: {
+    // options for markdown-it-anchor
+    anchor: { permalink: false },
+    // options for markdown-it-toc
+    // toc: { includeLevel: [1, 2] }
+  },
 	head: [
 		[
 			'link',
@@ -133,7 +201,8 @@ module.exports = {
 				sizes: '16x16',
 				href: '/favicon-16x16.png'
 			}
-		],
+    ],
+    ['link', { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.7.2/css/all.css', integrity: 'sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr', crossorigin: 'anonymous' }],
 		['link', { rel: 'manifest', href: '/manifest.json' }],
 		['meta', { name: 'msapplication-TileColor', content: '#ffffff' }],
 		[

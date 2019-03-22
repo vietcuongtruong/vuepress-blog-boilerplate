@@ -125,7 +125,9 @@ export default {
     </div>
 </template>
 
-<style scoped>
+<style lang="stylus" scoped>
+@import '../theme/styles/config.styl'
+
 .blog-list {
 	padding: 0;
 	margin: 0;
@@ -136,7 +138,7 @@ export default {
 }
 
 .button--pagination {
-	background-color: #32c8cf;
+	background-color: $accentColor;
 	border-radius: 4px;
 	color: #fff;
 	font-size: 0.8rem;
@@ -149,9 +151,9 @@ export default {
 
 .button--pagination:hover {
     background-color: #fff;
-    border: 1px solid #32c8cf;
+    border: 1px solid $accentColor;
     border-radius: 4px;
-    color: #32c8cf;
+    color: #2af;
 }
 
 .clear-filter-btn {

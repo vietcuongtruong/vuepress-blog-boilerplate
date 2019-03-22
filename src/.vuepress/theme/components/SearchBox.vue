@@ -93,11 +93,11 @@ export default {
       return res
     },
 
-    // make suggestions align right when there are not enough items
+    // make suggestions align right when there are not enough items (det var 2 tidigare)
     alignRight () {
       const navCount = (this.$site.themeConfig.nav || []).length
       const repo = this.$site.repo ? 1 : 0
-      return navCount + repo <= 2
+      return navCount + repo <= 6
     }
   },
 
@@ -157,13 +157,14 @@ export default {
 .search-box
   display inline-block
   position relative
-  margin-right 1rem
+  margin-left 1rem
   input
     cursor text
-    width 10rem
+    width 0
     color lighten($textColor, 25%)
     display inline-block
     border 1px solid darken($borderColor, 10%)
+    border-color transparent
     border-radius 2rem
     font-size 0.9rem
     line-height 2rem
@@ -173,6 +174,7 @@ export default {
     background #fff url(../assets/search.svg) 0.6rem 0.5rem no-repeat
     background-size 1rem
     &:focus
+      width 10rem
       cursor auto
       border-color $accentColor
   .suggestions
@@ -219,7 +221,7 @@ export default {
 @media (max-width: $MQNarrow) and (min-width: $MQMobile)
   .search-box
     .suggestions
-      left 0
+      right 0
 
 @media (max-width: $MQMobile)
   .search-box
@@ -232,7 +234,7 @@ export default {
 @media (max-width: $MQMobileNarrow)
   .search-box
     .suggestions
-      width calc(100vw - 4rem)
+      width calc(100vw - 5rem)
     input:focus
       width 8rem
 </style>
