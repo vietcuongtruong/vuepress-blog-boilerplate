@@ -7,7 +7,11 @@
       <div v-if="loading">Loading...</div>
       <article v-else v-for="project in projects" v-bind:key="project.id">
         <router-link :to="`${project.slug}`">
-          <img :src="project.thumbnail"/>
+          <progressive-background
+            :src="project.thumbnail"
+            :placeholder="project.tiny"
+            :blur="30"
+          />
           <h5>{{project.title}}</h5>
         </router-link>
       </article>
@@ -43,6 +47,12 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.grid
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr 1fr
+  // grid-template-columns: repeat(auto-fit, minmax(600px, 1fr))
+  grid-gap: 2rem
+  // margin: 0
   // .content
   //   max-width: 1200px
   // .grid

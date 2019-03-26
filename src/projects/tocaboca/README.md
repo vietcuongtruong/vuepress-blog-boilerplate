@@ -7,7 +7,6 @@ sidebar: false
 ---
 <ApiPostHero/>
 
-# {{ $frontmatter.title }}
 ###### Project added {{ $frontmatter.date }}
 
 <ApiPost/>

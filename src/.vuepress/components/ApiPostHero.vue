@@ -6,7 +6,13 @@
   <section v-else>
     <div v-if="loading">Loading...</div>
     <div v-else v-for="item in items" v-bind:key="item.heroImage">
-      <img :src="item.heroImage"/>
+      <!-- <img :src="item.heroImage"/> -->
+      <progressive-background
+        v-if="item.heroImage"
+        :src="item.heroImage"
+        :placeholder="item.tiny"
+        :blur="30"
+      />
     </div>
   </section>
 </template>
@@ -43,5 +49,9 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
+section
+  margin 0 -5rem
+  margin-top -3.6rem !important
+
 </style>
