@@ -72,9 +72,9 @@ import Sidebar from './components/Sidebar.vue'
 import SWUpdatePopup from './components/SWUpdatePopup.vue'
 import { resolveSidebarItems } from './util'
 import CustomLayout from '../components/CustomLayout.vue'
-import VueProgressiveImage from 'vue-progressive-image'
+// import VueProgressiveImage from 'vue-progressive-image'
 
-Vue.use(VueProgressiveImage)
+// Vue.use(VueProgressiveImage)
 
 export default {
   components: { 
