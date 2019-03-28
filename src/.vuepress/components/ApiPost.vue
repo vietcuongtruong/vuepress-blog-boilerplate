@@ -5,23 +5,23 @@
 
   <section v-else>
     <div v-if="loading">Loading...</div>
-      <div v-else v-for="item in items" v-bind:key="item.id">
-        <div class="grid">
-          <h1 class="title grid-item">
-            {{item.title}}
-          </h1>
-          <span class="grid-item" v-html="item.body"/>
-        </div>
-        <div v-for="img in item.images" v-bind:key="img.image">
-          <!-- <img :src="img.image"/> -->
-          <progressive-background
-            :src="img.image"
-            :placeholder="img.tiny"
-            :blur="30"
-          />
-          <h5>{{img.caption}}</h5>
-        </div>
+    <div v-else v-for="item in items" v-bind:key="item.id">
+      <div class="grid">
+        <h1 class="title grid-item">
+          {{item.title}}
+        </h1>
+        <span class="grid-item" v-html="item.body"/>
       </div>
+      <div v-for="img in item.images" v-bind:key="img.image">
+        <!-- <img :src="img.image"/> -->
+        <progressive-background
+          :src="img.image"
+          :placeholder="img.tiny"
+          :blur="30"
+        />
+        <h5>{{img.caption}}</h5>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -62,12 +62,15 @@ export default {
 @import '../theme/styles/reset.styl'
 @import '../theme/styles/config.styl'
 @import '../theme/styles/custom-layout.styl'
-.grid
+section > div:nth-child(1) > .grid
   display: grid
   grid-template-columns: 1fr 1fr
   // grid-template-columns: repeat(auto-fit, minmax(600px, 1fr))
   grid-gap: 2rem
   padding: 3rem 0 6rem
+// main .contain-grid > .grid ~ .grid
+//     display: none
+//     padding: 0
 .title.grid-item
   grid-column: 1
 .grid-item
