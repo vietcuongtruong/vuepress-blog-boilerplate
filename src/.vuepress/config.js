@@ -101,7 +101,8 @@ module.exports = {
 			}
 		],
 		'vuepress-plugin-reading-time',
-    'vuepress-plugin-janitor'
+    'vuepress-plugin-janitor',
+    'vue-progressive-image'
   ],
   markdown: {
     // options for markdown-it-anchor
