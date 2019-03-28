@@ -43,6 +43,7 @@
 import { resolvePage } from '../theme/util'
 
 export default {
+  name: 'CustomLayout',
   props: ['sidebarItems'],
 
   computed: {
