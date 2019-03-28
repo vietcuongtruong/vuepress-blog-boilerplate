@@ -23,7 +23,7 @@
 const axios = require('axios')
 
 export default {
-  name: 'Projects',
+  name: 'ApiPostList',
   data () {
     return {
       projects: [],
