@@ -77,7 +77,6 @@ import VueProgressiveImage from 'vue-progressive-image'
 Vue.use(VueProgressiveImage)
 
 export default {
-  name: 'Layout',
   components: { 
     Blog,
     Home, 
