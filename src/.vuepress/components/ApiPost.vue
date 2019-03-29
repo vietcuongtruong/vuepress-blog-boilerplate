@@ -13,12 +13,12 @@
         <span class="grid-item" v-html="item.body"/>
       </div>
       <div v-for="img in item.images" v-bind:key="img.image">
-        <!-- <img :src="img.image"/> -->
-        <progressive-background
+        <img :src="img.image"/>
+        <!-- <progressive-background
           :src="img.image"
           :placeholder="img.tiny"
           :blur="30"
-        />
+        /> -->
         <h5>{{img.caption}}</h5>
       </div>
     </div>

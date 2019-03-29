@@ -6,14 +6,13 @@
     <main class="grid">
       <div v-if="loading">Loading...</div>
       <article v-else v-for="project in projects" v-bind:key="project.id">
-        <!-- <router-link :to="`${project.slug}`" replace> -->
         <router-link :to="{ path: `/projects/${project.slug}`}" append>
-          <!-- <img :src="project.thumbnail"/> -->
-          <progressive-background
+          <img :src="project.thumbnail"/>
+          <!-- <progressive-background
             :src="project.thumbnail"
             :placeholder="project.tiny"
             :blur="30"
-          />
+          /> -->
           <h5>{{project.title}}</h5>
         </router-link>
       </article>
