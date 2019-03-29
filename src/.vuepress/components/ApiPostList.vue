@@ -33,7 +33,7 @@ export default {
       errored: false
     }
   },
-  async beforeMount () {
+  async mounted () {
     axios
       .get(`https://vietcuongtruong.com/api/posts/`)
       .then(response => {

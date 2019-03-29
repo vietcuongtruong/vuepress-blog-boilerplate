@@ -34,7 +34,7 @@ export default {
       return this.$page.frontmatter
     }
   },
-  async beforeMount () {
+  async mounted () {
     axios
       .get(`https://vietcuongtruong.com/api/posts/${this.data.slug}`)
       .then(response => {

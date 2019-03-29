@@ -2,7 +2,6 @@
 title: Everyread
 slug: everyread
 date: 04-25-18
-layout: CustomLayout
 sidebar: false
 ---
 <ApiPostHero/>

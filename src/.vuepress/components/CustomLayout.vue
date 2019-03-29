@@ -4,7 +4,7 @@
     
     <Content :custom="false"/>
 
-    <div class="page-nav" v-if="prev || next">
+    <!-- <div class="page-nav" v-if="prev || next">
       <p class="inner">
         <span
           v-if="prev"
@@ -33,68 +33,69 @@
           →
         </span>
       </p>
-    </div>
+    </div> -->
 
     <slot name="bottom"/>
   </div>
 </template>
 
 <script>
-import { resolvePage } from '../theme/util'
+// import { resolvePage, normalize, outboundRE, endingSlashRE } from '../theme/util'
 
-export default {
-  name: 'CustomLayout',
-  props: ['sidebarItems'],
+// export default {
+//   name: 'CustomLayout',
+  
+//   props: ['sidebarItems'],
 
-  computed: {
-    prev () {
-      const prev = this.$page.frontmatter.prev
-      if (prev === false) {
-        return
-      } else if (prev) {
-        return resolvePage(this.$site.pages, prev, this.$route.path)
-      } else {
-        return resolvePrev(this.$page, this.sidebarItems)
-      }
-    },
+//   computed: {
+//     prev () {
+//       const prev = this.$page.frontmatter.prev
+//       if (prev === false) {
+//         return
+//       } else if (prev) {
+//         return resolvePage(this.$site.pages, prev, this.$route.path)
+//       } else {
+//         return resolvePrev(this.$page, this.sidebarItems)
+//       }
+//     },
 
-    next () {
-      const next = this.$page.frontmatter.next
-      if (next === false) {
-        return
-      } else if (next) {
-        return resolvePage(this.$site.pages, next, this.$route.path)
-      } else {
-        return resolveNext(this.$page, this.sidebarItems)
-      }
-    }
-  }
-}
+//     next () {
+//       const next = this.$page.frontmatter.next
+//       if (next === false) {
+//         return
+//       } else if (next) {
+//         return resolvePage(this.$site.pages, next, this.$route.path)
+//       } else {
+//         return resolveNext(this.$page, this.sidebarItems)
+//       }
+//     }
+//   }
+// }
 
-function resolvePrev (page, items) {
-  return find(page, items, -1)
-}
+// function resolvePrev (page, items) {
+//   return find(page, items, -1)
+// }
 
-function resolveNext (page, items) {
-  return find(page, items, 1)
-}
+// function resolveNext (page, items) {
+//   return find(page, items, 1)
+// }
 
-function find (page, items, offset) {
-  const res = []
-  items.forEach(item => {
-    if (item.type === 'group') {
-      res.push(...item.children || [])
-    } else {
-      res.push(item)
-    }
-  })
-  for (let i = 0; i < res.length; i++) {
-    const cur = res[i]
-    if (cur.type === 'page' && cur.path === page.path) {
-      return res[i + offset]
-    }
-  }
-}
+// function find (page, items, offset) {
+//   const res = []
+//   items.forEach(item => {
+//     if (item.type === 'group') {
+//       res.push(...item.children || [])
+//     } else {
+//       res.push(item)
+//     }
+//   })
+//   for (let i = 0; i < res.length; i++) {
+//     const cur = res[i]
+//     if (cur.type === 'page' && cur.path === page.path) {
+//       return res[i + offset]
+//     }
+//   }
+// }
 </script>
 
 <style lang="stylus" scoped>

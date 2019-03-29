@@ -2,7 +2,7 @@
 title: Tripwell
 slug: tripwell
 date: 04-25-18
-layout: CustomLayout
+# layout: CustomLayout
 sidebar: false
 ---
 <ApiPostHero/>

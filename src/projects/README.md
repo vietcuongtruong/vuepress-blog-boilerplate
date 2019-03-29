@@ -1,5 +1,4 @@
 ---
-layout: CustomLayout
 sidebar: false
 ---
 # Selected Projects
