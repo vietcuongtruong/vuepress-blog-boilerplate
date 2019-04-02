@@ -1,5 +1,5 @@
 // .vuepress/enhanceApp.js
-// import VueProgressiveImage from 'vue-progressive-image'
+// import lozad from 'lozad'
 
 
 // export default ({
@@ -8,5 +8,5 @@
 //   router, // the router instance for the app
 //   siteData // site metadata
 // }) => {
-//     Vue.use(VueProgressiveImage)
+//     Vue.use(lozad)
 // }

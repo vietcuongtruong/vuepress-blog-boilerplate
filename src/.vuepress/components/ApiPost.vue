@@ -13,12 +13,11 @@
         <span class="grid-item" v-html="item.body"/>
       </div>
       <div v-for="img in item.images" v-bind:key="img.image">
-        <img :src="img.image"/>
-        <!-- <progressive-background
-          :src="img.image"
-          :placeholder="img.tiny"
-          :blur="30"
-        /> -->
+        <!-- <img :src="img.image"/> -->
+        <AppImage
+          :src="img.tiny"
+          :lazy-src="img.image"
+        />
         <h5>{{img.caption}}</h5>
       </div>
     </div>
@@ -43,7 +42,7 @@ export default {
       return this.$page.frontmatter
     }
   },
-  async mounted () {
+  async beforeMount () {
     axios
       .get(`https://vietcuongtruong.com/api/posts/${this.data.slug}`)
       .then(response => {

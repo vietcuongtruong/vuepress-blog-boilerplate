@@ -11,6 +11,7 @@
 	},
 	"dependencies": {
 		"axios": "^0.18.0",
+		"lozad": "^1.9.0",
 		"vue-progressive-image": "^3.2.0"
 	},
 	"devDependencies": {

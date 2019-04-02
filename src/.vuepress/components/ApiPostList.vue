@@ -7,7 +7,15 @@
       <div v-if="loading">Loading...</div>
       <article v-else v-for="project in projects" v-bind:key="project.id">
         <router-link :to="{ path: `/projects/${project.slug}`}" append>
-          <img :src="project.thumbnail"/>
+          <!-- <img :src="project.thumbnail"/> -->
+          <AppImage
+            :src="project.tiny"
+            :lazy-src="project.thumbnail"
+          />
+          <!-- <ProgressiveImage
+            :largeImageLink="project.thumbnail"
+            :smallImageLink="project.tiny">
+          </ProgressiveImage> -->
           <!-- <progressive-background
             :src="project.thumbnail"
             :placeholder="project.tiny"
@@ -21,6 +29,7 @@
 </template>
 
 <script>
+// import ProgressiveImage from './ProgressiveImage.vue'
 const axios = require('axios')
 
 export default {
@@ -32,7 +41,7 @@ export default {
       errored: false
     }
   },
-  async mounted () {
+  async beforeMount () {
     axios
       .get(`https://vietcuongtruong.com/api/posts/`)
       .then(response => {

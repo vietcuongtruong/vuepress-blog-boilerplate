@@ -6,19 +6,20 @@
   <section v-else>
     <div v-if="loading">Loading...</div>
     <div v-else v-for="item in items" v-bind:key="item.heroImage">
-      <img :src="item.heroImage"/>
-      <!-- <progressive-background
-        v-if="item.heroImage"
-        :src="item.heroImage"
-        :placeholder="item.tiny"
-        :blur="30"
-      /> -->
+      <!-- <img :src="item.heroImage"/> -->
+    <AppImage
+      :src="item.tiny"
+      :lazy-src="item.heroImage"
+    />
     </div>
   </section>
 </template>
 
 <script>
+// import BlurryImageLoader from './BlurryImageLoader.vue'
 const axios = require('axios')
+
+
 
 export default {
   name: 'ApiPostHero',
@@ -34,7 +35,7 @@ export default {
       return this.$page.frontmatter
     }
   },
-  async mounted () {
+  async beforeMount () {
     axios
       .get(`https://vietcuongtruong.com/api/posts/${this.data.slug}`)
       .then(response => {
@@ -47,9 +48,13 @@ export default {
       .finally(() => this.loading = false)
   }
 }
+
+
 </script>
 
 <style lang="stylus" scoped>
+img
+  width 100%
 section
   margin 0 -5rem
   margin-top -3.6rem !important
