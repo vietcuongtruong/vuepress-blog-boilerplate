@@ -15,6 +15,7 @@
       <div v-for="img in item.images" v-bind:key="img.image">
         <!-- <img :src="img.image"/> -->
         <AppImage
+          v-if="img.image"
           :src="img.tiny"
           :lazy-src="img.image"
         />
@@ -26,7 +27,6 @@
 
 <script>
 const axios = require('axios')
-
 
 export default {
   name: 'ApiPost',

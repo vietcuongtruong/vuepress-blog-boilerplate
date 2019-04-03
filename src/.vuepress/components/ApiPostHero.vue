@@ -8,18 +8,22 @@
     <div v-else v-for="item in items" v-bind:key="item.heroImage">
       <!-- <img :src="item.heroImage"/> -->
     <AppImage
+      v-if="item.heroImage"
       :src="item.tiny"
       :lazy-src="item.heroImage"
     />
+    <!-- <progressive-background
+      v-if="item.heroImage"
+      :src="item.heroImage"
+      :placeholder="item.tiny"
+      :blur="30"
+    /> -->
     </div>
   </section>
 </template>
 
 <script>
-// import BlurryImageLoader from './BlurryImageLoader.vue'
 const axios = require('axios')
-
-
 
 export default {
   name: 'ApiPostHero',

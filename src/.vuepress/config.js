@@ -20,7 +20,7 @@ module.exports = {
       { text: 'Archive', link: '/archive/' },
       { text: 'About', link: '/about/' },
       // {
-      //   text: 'About',
+      //   text: 'About', 
       //   items: [
       //     { text: 'About', link: '/about/' },
       //     { text: 'Me', link: '/about/me/' },
@@ -85,6 +85,9 @@ module.exports = {
     // }
 	},
 	plugins: [
+    [ 
+      '@vuepress/register-components'
+    ],
 		[
 			'@vuepress/google-analytics',
 			{

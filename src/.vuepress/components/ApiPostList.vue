@@ -9,6 +9,7 @@
         <router-link :to="{ path: `/projects/${project.slug}`}" append>
           <!-- <img :src="project.thumbnail"/> -->
           <AppImage
+            v-if="project.thumbnail"
             :src="project.tiny"
             :lazy-src="project.thumbnail"
           />
@@ -29,7 +30,6 @@
 </template>
 
 <script>
-// import ProgressiveImage from './ProgressiveImage.vue'
 const axios = require('axios')
 
 export default {

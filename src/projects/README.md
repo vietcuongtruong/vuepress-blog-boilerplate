@@ -1,4 +1,5 @@
 ---
+title: Projects
 sidebar: false
 ---
 # Selected Projects
