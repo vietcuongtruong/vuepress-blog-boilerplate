@@ -14,10 +14,15 @@
       </div>
       <div v-for="img in item.images" v-bind:key="img.image">
         <!-- <img :src="img.image"/> -->
+        <!-- <ProImage
+          v-if="img.image"
+          :smallSrc="img.tiny"
+          :lazySrc="img.image"
+        /> -->
         <AppImage
           v-if="img.image"
+          :lazySrc="img.image"
           :src="img.tiny"
-          :lazy-src="img.image"
         />
         <h5>{{img.caption}}</h5>
       </div>

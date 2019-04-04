@@ -8,10 +8,15 @@
       <article v-else v-for="project in projects" v-bind:key="project.id">
         <router-link :to="{ path: `/projects/${project.slug}`}" append>
           <!-- <img :src="project.thumbnail"/> -->
+          <!-- <ProImage
+            v-if="project.thumbnail"
+            :smallSrc="project.tiny"
+            :lazySrc="project.thumbnail"
+          /> -->
           <AppImage
             v-if="project.thumbnail"
             :src="project.tiny"
-            :lazy-src="project.thumbnail"
+            :lazySrc="project.thumbnail"
           />
           <!-- <ProgressiveImage
             :largeImageLink="project.thumbnail"

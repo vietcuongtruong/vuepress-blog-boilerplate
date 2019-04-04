@@ -11,3 +11,4 @@
 // }) => {
 //     Vue.use(VueProgressiveImage)
 // }
+

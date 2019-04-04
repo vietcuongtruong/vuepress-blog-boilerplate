@@ -1,23 +1,46 @@
 <template>
-  <div class="lozad placeholder" :data-background-image="lazySrc">
-    <transition name="fade">
-      <img
-        class="image-small"
-        :src="lazySmallSrc"
-        v-on:load="onLoaded"
-        v-show="loaded"
-        :style="style"
-      >
-    </transition>
-    <div style="padding-bottom: 66.6%;"></div>
-  </div>
+  <div class="placeholder"
+    :data-large="lazySrc"
+    :style="style"
+  >
+  <img :src="smallSrc" class="img-small">
+  <div style="padding-bottom: 66.6%;"></div>
+</div>
+  <!-- <img
+    :data-src="lazySrc"
+    :data-srcset="lazySrcset"
+    :style="style"
+    class="AppImage"
+  > -->
 </template>
 
 <script>
+// window.onload = function() {
+
+//   var placeholder = document.querySelector('.placeholder'),
+//       small = placeholder.querySelector('.img-small')
+  
+//   // 1: load small image and show it
+//   var img = new Image();
+//   img.src = small.src;
+//   img.onload = function () {
+//   small.classList.add('loaded');
+//   };
+  
+//   // 2: load large image
+//   var imgLarge = new Image();
+//   imgLarge.src = placeholder.dataset.large; 
+//   imgLarge.onload = function () {
+//     imgLarge.classList.add('loaded');
+//   };
+//   placeholder.appendChild(imgLarge);
+// };
+
+
 import lozad from 'lozad';
 
 export default {
-  name: 'AppImage',
+  name: 'ProImage',
   props: {
     backgroundColor: {
       type: String,
@@ -25,10 +48,6 @@ export default {
     },
     height: {
       type: Number,
-      default: null,
-    },
-    lazySmallSrc: {
-      typ: String,
       default: null,
     },
     lazySrc: {
@@ -39,21 +58,19 @@ export default {
       type: String,
       default: null,
     },
+    smallSrc: {
+      type: String,
+      default: null,
+    },
     width: {
       type: Number,
       default: null,
-    }
+    },
   },
   data() {
     return {
       loading: true,
-      loaded: false
     };
-  },
-  methods: {
-    onLoaded() {
-      this.loaded = true;
-    }
   },
   computed: {
     aspectRatio() {
@@ -85,9 +102,10 @@ export default {
         // Scale the image container according
         // to the aspect ratio.
         style.paddingTop = `${this.aspectRatio}%`;
-      };
+      }
+
       return style;
-    }
+    },
   },
   mounted() {
     // As soon as the <img> element triggers
@@ -104,15 +122,17 @@ export default {
     this.$once('hook:destroyed', () => {
       this.$el.removeEventListener('load', setLoadingState);
     });
+
     // We initialize Lozad.js on the root
     // element of our component.
     const observer = lozad(this.$el);
     observer.observe();
   },
 };
+
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 // Responsive image styles.
 .placeholder
   background-color: #f6f6f6
@@ -123,40 +143,19 @@ export default {
 
 .placeholder img
   position: absolute
-  // opacity: 0
+  opacity: 0
   top: 0
   left: 0
   width: 100%
-  // transition: opacity 1s linear
+  transition: opacity 1s linear
 
 
 .placeholder img.loaded
-  // opacity: 1
+  opacity: 1
 
 
 .img-small
-  max-width: 100%
-  max-height: 100%
-  width: auto
-  height: auto
-  vertical-align: middle
   filter: blur(50px)
   /* this is needed so Safari keeps sharp edges */
   transform: scale(1)
-
-.fade-enter-active {
-  transition: opacity 5s linear
-  filter: blur(50px)
-  /* this is needed so Safari keeps sharp edges */
-  transform: scale(1)
-}
-
-.fade-enter-to {
-  opacity: 0;
-}
-
-.fade-enter {
-  opacity: 1;
-}
 </style>
-
