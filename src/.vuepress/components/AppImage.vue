@@ -3,13 +3,13 @@
     <transition name="fade">
       <img
         class="image-small"
-        :src="lazySmallSrc"
         v-on:load="onLoaded"
         v-show="loaded"
+        :src="lazySmallSrc"
         :style="style"
       >
     </transition>
-    <div style="padding-bottom: 66.6%;"></div>
+    <div style="padding-bottom: 62%;"></div>
   </div>
 </template>
 
@@ -121,42 +121,40 @@ export default {
   position: relative
   overflow: hidden
 
-.placeholder img
+.placeholder .image-small
   position: absolute
-  // opacity: 0
+  opacity: 0
   top: 0
   left: 0
   width: 100%
   // transition: opacity 1s linear
-
-
-.placeholder img.loaded
-  // opacity: 1
-
-
-.img-small
   max-width: 100%
   max-height: 100%
-  width: auto
-  height: auto
+  // width: auto
+  // height: auto
   vertical-align: middle
-  filter: blur(50px)
+  filter: blur(10px)
   /* this is needed so Safari keeps sharp edges */
   transform: scale(1)
 
-.fade-enter-active {
-  transition: opacity 5s linear
-  filter: blur(50px)
-  /* this is needed so Safari keeps sharp edges */
-  transform: scale(1)
-}
 
-.fade-enter-to {
+// .placeholder img.loaded
+  // opacity: 1
+
+.fade-enter-active
+  transition: opacity 1s linear
+  // filter: blur(50px)
+  /* this is needed so Safari keeps sharp edges */
+  // transform: scale(1)
+
+
+.fade-enter-to
   opacity: 0;
-}
 
-.fade-enter {
+
+
+.fade-enter
   opacity: 1;
-}
+
 </style>
 
