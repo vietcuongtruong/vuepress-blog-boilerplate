@@ -1,14 +1,14 @@
 <template>
   <div class="lozad placeholder" :data-background-image="lazySrc">
-    <transition name="fade">
-      <img
-        class="image-small"
-        v-on:load="loaded"
-        v-bind:class="{loaded: isLoad}"
-        :src="lazySmallSrc"
-        :style="style"
-      >
-    </transition>
+    <!-- <transition name="fade"> -->
+    <img
+      class="image-small"
+      v-on:load="loaded"
+      v-bind:class="{loaded: isLoad}"
+      :src="lazySmallSrc"
+      :style="style"
+    >
+    <!-- </transition> -->
     <div style="padding-bottom: 62%;"></div>
   </div>
 </template>
@@ -157,7 +157,7 @@ export default {
   top: 0
   left: 0
   width: 100%
-  // transition: opacity .5s linear
+  transition: opacity .5s linear
   max-width: 100%
   max-height: 100%
   // width: auto
@@ -171,20 +171,20 @@ export default {
 .placeholder img.loaded
   opacity: 0
 
-.fade-enter-active
-  transition: opacity .5s linear
-  // filter: blur(50px)
-  /* this is needed so Safari keeps sharp edges */
-  // transform: scale(1)
+// .fade-enter-active
+//   transition: opacity .5s linear
+//   // filter: blur(50px)
+//   /* this is needed so Safari keeps sharp edges */
+//   // transform: scale(1)
 
 
-.fade-enter-to
-  opacity: 0;
+// .fade-enter-to
+//   opacity: 0;
 
 
 
-.fade-enter
-  opacity: 1;
+// .fade-enter
+//   opacity: 1;
 
 </style>
 
