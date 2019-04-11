@@ -3,8 +3,8 @@
     <transition name="fade">
       <img
         class="image-small"
-        v-on:load="onLoaded"
-        v-show="loaded"
+        v-on:load="loaded"
+        v-bind:class="{loaded: isLoad}"
         :src="lazySmallSrc"
         :style="style"
       >
@@ -47,12 +47,12 @@ export default {
   data() {
     return {
       loading: true,
-      loaded: false
+      isLoad: false
     };
   },
   methods: {
-    onLoaded() {
-      this.loaded = true;
+    loaded() {
+      this.isLoad = true;
     }
   },
   computed: {
@@ -90,10 +90,40 @@ export default {
     }
   },
   mounted() {
+    // window.onload = function() {
+
+    //   var small = document.getElementsByClassName('image-small')
+      
+    //   // 1: load small image and show it
+    //   // var img = new Image();
+    //   // img.src = small.src;
+    //   small.classList.add('loaded');
+    //   // img.onload = function () {
+    //   //   small.classList.add('loaded');
+    //   // };
+    //   // var img = new Image();
+    //   // img.src = small.src;
+    //   // img.onload = function () {
+    //   // small.classList.add('loaded');
+    //   // };
+      
+    //   // 2: load large image
+    //   // var imgLarge = new Image();
+    //   // imgLarge.src = placeholder.dataset.large; 
+    //   // imgLarge.onload = function () {
+    //   //   imgLarge.classList.add('loaded');
+    //   // };
+    //   // placeholder.appendChild(imgLarge);
+    // };
     // As soon as the <img> element triggers
     // the `load` event, the loading state is
     // set to `false`, which removes the apsect
     // ratio we've applied earlier.
+    // const addLoadedClass = () => {
+    //   var small = document.getElementsByClassName('image-small');
+    //   small.classList.add('loaded');
+    // };
+
     const setLoadingState = () => {
       this.loading = false;
     };
@@ -121,13 +151,13 @@ export default {
   position: relative
   overflow: hidden
 
-.placeholder .image-small
+.placeholder img
   position: absolute
-  opacity: 0
+  opacity: 1
   top: 0
   left: 0
   width: 100%
-  // transition: opacity 1s linear
+  // transition: opacity .5s linear
   max-width: 100%
   max-height: 100%
   // width: auto
@@ -138,11 +168,11 @@ export default {
   transform: scale(1)
 
 
-// .placeholder img.loaded
-  // opacity: 1
+.placeholder img.loaded
+  opacity: 0
 
 .fade-enter-active
-  transition: opacity 1s linear
+  transition: opacity .5s linear
   // filter: blur(50px)
   /* this is needed so Safari keeps sharp edges */
   // transform: scale(1)
