@@ -16,7 +16,7 @@
           <AppImage
             v-if="project.thumbnail"
             :lazySrc="project.thumbnail"
-            :lazySmallSrc="project.tiny"
+            :src="project.tiny"
           />
           <!-- <ProgressiveImage
             :largeImageLink="project.thumbnail"

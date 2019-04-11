@@ -22,7 +22,7 @@
         <AppImage
           v-if="img.image"
           :lazySrc="img.image"
-          :lazySmallSrc="img.tiny"
+          :src="img.tiny"
         />
         <h5>{{img.caption}}</h5>
       </div>

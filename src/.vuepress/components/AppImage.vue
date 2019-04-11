@@ -5,7 +5,6 @@
       class="image-small"
       v-on:load="loaded"
       v-bind:class="{loaded: isLoad}"
-      :src="lazySmallSrc"
       :style="style"
     >
     <!-- </transition> -->
@@ -25,10 +24,6 @@ export default {
     },
     height: {
       type: Number,
-      default: null,
-    },
-    lazySmallSrc: {
-      typ: String,
       default: null,
     },
     lazySrc: {

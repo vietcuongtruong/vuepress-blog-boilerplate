@@ -15,7 +15,7 @@
     <AppImage
       v-if="item.heroImage"
       :lazySrc="item.heroImage"
-      :lazySmallSrc="item.tiny"
+      :src="item.tiny"
     />
     <!-- <progressive-background
       v-if="item.heroImage"
