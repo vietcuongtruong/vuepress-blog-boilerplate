@@ -7,22 +7,12 @@
     <div v-if="loading">Loading...</div>
     <div v-else v-for="item in items" v-bind:key="item.heroImage">
       <!-- <img :src="item.heroImage"/> -->
-      <!-- <ProImage
+      <progressive-background
         v-if="item.heroImage"
-        :lazySrc="item.heroImage"
-        :smallSrc="item.tiny"
-      /> -->
-    <AppImage
-      v-if="item.heroImage"
-      :lazySrc="item.heroImage"
-      :src="item.tiny"
-    />
-    <!-- <progressive-background
-      v-if="item.heroImage"
-      :src="item.heroImage"
-      :placeholder="item.tiny"
-      :blur="30"
-    /> -->
+        :src="item.heroImage"
+        :placeholder="item.tiny"
+        :blur="30"
+      />
     </div>
   </section>
 </template>

@@ -12,17 +12,14 @@
         </h1>
         <span class="grid-item" v-html="item.body"/>
       </div>
-      <div v-for="img in item.images" v-bind:key="img.image">
+      <div v-if="loading">Loading...</div>
+      <div v-else v-for="img in item.images" v-bind:key="img.image">
         <!-- <img :src="img.image"/> -->
-        <!-- <ProImage
-          v-if="img.image"
-          :smallSrc="img.tiny"
-          :lazySrc="img.image"
-        /> -->
-        <AppImage
-          v-if="img.image"
-          :lazySrc="img.image"
-          :src="img.tiny"
+        <progressive-background
+          v-if="item.heroImage"
+          :src="img.image"
+          :placeholder="img.tiny"
+          :blur="30"
         />
         <h5>{{img.caption}}</h5>
       </div>
